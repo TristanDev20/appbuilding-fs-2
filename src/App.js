@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Admin from './pages/Admin';
+import Movies from './pages/Movies';
 
 
 function App(){
@@ -69,6 +70,7 @@ return (
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/movies" element={<Movies />} />
         </Routes>
       </Container>  
    </BrowserRouter>

@@ -27,7 +27,7 @@ export default function AppNavbar(){
               {user.isAdmin ? (
                 <Nav.Link as={Link} to="/admin">Admin Dashboard</Nav.Link>
               ) : (
-                <Nav.Link as={Link} to="/">Movies</Nav.Link>
+                <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
               )}
               <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
             </>
