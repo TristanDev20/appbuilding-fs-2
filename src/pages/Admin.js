@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from 'react';
 import Swal from 'sweetalert2';
 import AddMovie from '../components/AddMovie';
 import UpdateMovie from '../components/UpdateMovie';
+import GetMovieByIdForm from '../components/GetMovieByIdForm';
 
 export default function Admin() {
 	const { user } = useContext(UserContext);
@@ -115,6 +116,11 @@ export default function Admin() {
 
 			<div className="d-flex justify-content-center mb-4">
 				<AddMovie onMovieAdded={fetchData} />
+			</div>
+
+			<div className="mb-3">
+			<h4>Search Movie by ID</h4>
+			<GetMovieByIdForm />
 			</div>
 
 			{isLoading ? (
