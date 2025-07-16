@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Card, Button, Modal, Spinner, Alert } from 'react-bootstrap';
 import UserContext from '../context/UserContext';
 import CommentsModal from '../components/CommentsModal';
+import GetMovieByIdForm from '../components/GetMovieByIdForm';
 
 export default function Movies() {
 	const { user } = useContext(UserContext);
@@ -92,6 +93,11 @@ export default function Movies() {
 	return (
 		<Container className="mt-4">
 			<h1 className="text-center mb-4">Movie Collection</h1>
+
+			<div className="mb-3">
+			<h4>Search Movie by ID</h4>
+			<GetMovieByIdForm />
+			</div>
 			
 			{error && (
 				<Alert variant="danger" className="mb-4">

@@ -29,7 +29,6 @@ export default function CommentsModal({ show, handleClose, movie, user }) {
 			})
 			.then((data) => {
 				console.log('Comments response:', data);
-				// Adjust based on your API response structure
 				if (Array.isArray(data)) {
 					setComments(data);
 				} else if (Array.isArray(data.comments)) {
@@ -58,7 +57,7 @@ export default function CommentsModal({ show, handleClose, movie, user }) {
 		setIsSubmitting(true);
 		
 		fetch(`https://movieapp-api-lms1.onrender.com/movies/addComment/${movie._id}`, {
-			method: 'POST',
+			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -74,7 +73,7 @@ export default function CommentsModal({ show, handleClose, movie, user }) {
 			})
 			.then((data) => {
 				console.log('Add comment response:', data);
-				// Updated success condition based on common API response patterns
+				
 				if (data.message || data.success || data.comment || data.result) {
 					Swal.fire('Success', data.message || 'Comment added successfully!', 'success');
 					setNewComment('');
@@ -90,14 +89,14 @@ export default function CommentsModal({ show, handleClose, movie, user }) {
 			.finally(() => setIsSubmitting(false));
 	};
 
-	// Fetch comments when modal opens and movie changes
+	
 	useEffect(() => {
 		if (show && movie) {
 			fetchComments();
 		}
 	}, [show, movie]);
 
-	// Reset form when modal closes
+	
 	useEffect(() => {
 		if (!show) {
 			setNewComment('');
